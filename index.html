@@ -1,0 +1,333 @@
+<title>The Deployment Path</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --ink:#14181B; --ink-2:#4A5751; --ground:#F5F8F6; --surface:#FFFFFF;
+  --accent:#0E7C66; --accent-soft:#E2F0EB; --signal:#B45309; --signal-soft:#FBEEE0;
+  --rule:#D7DFDB; --rail:#C3D2CB;
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono","Consolas",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#E7EDEA; --ink-2:#9DAEA7; --ground:#0F1412; --surface:#171E1B;
+    --accent:#3ECBA8; --accent-soft:#12312A; --signal:#E8A33D; --signal-soft:#33260F;
+    --rule:#28332E; --rail:#2E3B36;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E7EDEA; --ink-2:#9DAEA7; --ground:#0F1412; --surface:#171E1B;
+  --accent:#3ECBA8; --accent-soft:#12312A; --signal:#E8A33D; --signal-soft:#33260F;
+  --rule:#28332E; --rail:#2E3B36;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;line-height:1.08;margin:0}
+a{color:var(--accent)}
+.mono{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase}
+
+.topbar{border-bottom:1px solid var(--rule);background:var(--surface)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:22px;align-items:center}
+.navlinks a:not(.btn){color:var(--ink-2);text-decoration:none;font-size:.92rem}
+.navlinks a:not(.btn):hover{color:var(--accent)}
+@media(max-width:720px){.navlinks a:not(.btn){display:none}}
+.btn{display:inline-block;background:var(--accent);color:var(--ground);text-decoration:none;
+  font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:10px 18px;border-radius:3px;border:1px solid var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--accent)}
+:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+.hero{padding:64px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{color:var(--signal);margin-bottom:18px}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);letter-spacing:-.03em;max-width:16ch}
+.hero p.lede{font-size:1.18rem;color:var(--ink-2);max-width:58ch;margin:22px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:end}
+@media(max-width:840px){.hero-grid{grid-template-columns:1fr;gap:34px;align-items:start}}
+.jobcard{background:var(--surface);border:1px solid var(--rule);border-radius:4px;font-family:var(--mono);font-size:.82rem}
+.jobcard .head{display:flex;align-items:center;gap:9px;padding:11px 14px;border-bottom:1px solid var(--rule);
+  color:var(--ink-2);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+.jobcard dl{margin:0;padding:14px;display:grid;grid-template-columns:auto 1fr;gap:9px 16px}
+.jobcard dt{color:var(--ink-2)}
+.jobcard dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+
+section{padding:64px 0;border-bottom:1px solid var(--rule)}
+.sec-head{margin-bottom:34px}
+.sec-head .mono{color:var(--signal);display:block;margin-bottom:12px}
+.sec-head h2{font-size:clamp(1.6rem,3.4vw,2.25rem);letter-spacing:-.02em}
+.sec-head p{color:var(--ink-2);max-width:62ch;margin:12px 0 0}
+
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.list li{padding-left:26px;position:relative;color:var(--ink-2)}
+.list li::before{content:"";position:absolute;left:2px;top:.6em;width:9px;height:2px;background:var(--accent)}
+.list.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 44px}
+@media(max-width:760px){.list.grid2{grid-template-columns:1fr}}
+
+.pipeline{position:relative;display:flex;flex-direction:column}
+.stage{display:grid;grid-template-columns:72px 1fr;gap:0;border-top:1px solid var(--rule);padding:26px 0}
+.stage:last-child{border-bottom:1px solid var(--rule)}
+.stage-rail{position:relative;padding-right:24px}
+.stage-rail .num{font-family:var(--mono);font-size:1.5rem;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1}
+.stage-rail::after{content:"";position:absolute;right:0;top:-26px;bottom:-26px;width:1px;background:var(--rail)}
+.stage:first-child .stage-rail::after{top:0}
+.stage:last-child .stage-rail::after{bottom:0}
+.stage-body{padding-left:26px}
+.stage-body h3{font-size:1.22rem;letter-spacing:-.01em}
+.stage-body>p{color:var(--ink-2);margin:9px 0 0;max-width:60ch}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.stage-body code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);color:var(--accent);padding:1px 5px;border-radius:2px}
+.tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;padding:3px 9px;border-radius:2px;
+  background:var(--accent-soft);color:var(--accent)}
+.ship{margin-top:14px;font-size:.94rem;color:var(--ink);border-left:2px solid var(--signal);padding-left:14px}
+.ship b{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--signal);display:block;margin-bottom:3px}
+@media(max-width:640px){
+  .stage{grid-template-columns:1fr;gap:14px}
+  .stage-rail{display:flex;align-items:baseline;gap:14px;padding-right:0}
+  .stage-rail::after{display:none}
+  .stage-body{padding-left:0}
+}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+@media(max-width:760px){.facts{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.facts{grid-template-columns:1fr}.fact:last-child{grid-column:auto}}
+.fact{background:var(--surface);padding:22px}
+.fact:last-child{grid-column:span 2}
+.fact .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.fact .v{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-top:7px;letter-spacing:-.01em}
+.fact .n{color:var(--ink-2);font-size:.92rem;margin-top:5px}
+
+.req{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+@media(max-width:760px){.req{grid-template-columns:1fr;gap:26px}}
+.subhead{font-size:1.05rem;margin-bottom:16px}
+.term{font-family:var(--mono);font-size:.86rem;background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:16px 18px;overflow-x:auto;color:var(--ink-2);line-height:1.85}
+.term .c{color:var(--accent)}
+.aside{color:var(--ink-2);font-size:.95rem;margin-top:16px}
+
+.price-card{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:30px;
+  display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+@media(max-width:700px){.price-card{grid-template-columns:1fr}}
+.amount{font-family:var(--display);font-weight:700;font-size:2.6rem;letter-spacing:-.03em;line-height:1}
+.price-card .note{color:var(--ink-2);margin:10px 0 0;font-size:.95rem}
+.buys{display:flex;flex-direction:column;gap:10px}
+
+
+footer{padding:52px 0;background:var(--surface)}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .mono{color:var(--ink-2)}
+.ph{background:var(--signal-soft);color:var(--signal);padding:1px 6px;border-radius:2px;
+  font-family:var(--mono);font-size:.82em;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand">the deployment <span>path</span></div>
+  <nav class="navlinks">
+    <a href="#curriculum">Curriculum</a>
+    <a href="#format">How it runs</a>
+    <a href="#requirements">What you need</a>
+    <a href="#enroll" class="btn">Reserve a seat</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <div class="mono eyebrow">Weekends &middot; Live remote cohort &middot; Cohort 01</div>
+    <h1>Learn to ship software the way teams actually ship it.</h1>
+    <p class="lede">Three months of Friday-to-Sunday evenings &mdash; nine modules, 72 hours of live instruction, and one running system you build yourself, from a bare Git repo to a containerized app deployed on Kubernetes by a pipeline you wrote. For engineers who already know the cloud and want to automate everything that touches it.</p>
+    <div class="cta-row">
+      <a href="#enroll" class="btn">Reserve a seat</a>
+      <a href="#curriculum" class="btn ghost">See the curriculum</a>
+    </div>
+  </div>
+  <div class="jobcard">
+    <div class="head"><span class="dot"></span> cohort-01 &middot; status: enrolling</div>
+    <dl>
+      <dt>modules</dt><dd>9</dd>
+      <dt>duration</dt><dd>3 months</dd>
+      <dt>live sessions</dt><dd>3 &times; weekly</dd>
+      <dt>session length</dt><dd>2 hours</dd>
+      <dt>contact hours</dt><dd>72</dd>
+      <dt>days</dt><dd>Fri &middot; Sat &middot; Sun</dd>
+      <dt>starts</dt><dd><span class="ph">[DD MMM]</span></dd>
+      <dt>delivery</dt><dd>remote / live</dd>
+    </dl>
+  </div>
+</div></header>
+
+<section id="audience"><div class="wrap">
+  <div class="sec-head">
+    <span class="mono">01 &mdash; Who this is for</span>
+    <h2>Built for engineers who already know the cloud.</h2>
+    <p>This cohort assumes you are technical: you have used a terminal, you have spun up resources in a cloud console, and you are not learning what a virtual machine is. What you are here for is everything that turns those resources into an automated delivery pipeline.</p>
+  </div>
+  <ul class="list grid2">
+    <li>A developer who keeps getting blocked by deployment and wants to own it end to end.</li>
+    <li>A sysadmin or cloud engineer who provisions by hand and wants it in code instead.</li>
+    <li>Working full time and unable to study on weekdays &mdash; every session falls on a Friday evening or a weekend.</li>
+    <li>Someone who knows each tool in isolation but has never wired them into one working system.</li>
+  </ul>
+</div></section>
+
+<section id="curriculum"><div class="wrap">
+  <div class="sec-head">
+    <span class="mono">02 &mdash; Curriculum</span>
+    <h2>Eight stages. Each one adds to the same system.</h2>
+    <p>The order is deliberate: every module consumes what the last one produced. By module 9 you are deploying an artifact that was built, scanned, containerized and provisioned by work you did in modules 3 through 8.</p>
+    <p>Across the three months, modules 1 to 4 run about a week each and modules 5 to 9 rather longer &mdash; Docker, ECS, CI/CD, Terraform and Kubernetes get the bulk of the 72 hours. Pace shifts with the room; nobody is left behind to keep a schedule.</p>
+  </div>
+
+  <div class="pipeline">
+    <article class="stage"><div class="stage-rail"><span class="num">01</span></div>
+      <div class="stage-body">
+        <h3>DevOps Foundations</h3>
+        <p>What DevOps actually is once you strip the marketing off it: the delivery lifecycle, why handoffs break, and where every tool in this course sits relative to the others. Then we build the shared environment every later module runs on.</p>
+        <div class="tags"><span class="tag">SDLC</span><span class="tag">delivery pipeline anatomy</span><span class="tag">environments</span><span class="tag">toolchain setup</span></div>
+        <div class="ship"><b>You finish with</b>A configured workstation, a provisioned Linux host, and a mental map of how the nine modules connect.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">02</span></div>
+      <div class="stage-body">
+        <h3>Git &amp; GitHub</h3>
+        <p>Version control as a team practice, not a set of memorized commands. Branching models, pull requests, code review, resolving merge conflicts without panic, and the repository conventions every later module depends on.</p>
+        <div class="tags"><span class="tag">git</span><span class="tag">branching</span><span class="tag">pull requests</span><span class="tag">conflict resolution</span></div>
+        <div class="ship"><b>You finish with</b>The course repository, forked and structured, with your first reviewed pull request merged.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">03</span></div>
+      <div class="stage-body">
+        <h3>Build Tools &amp; Artifacts</h3>
+        <p>How source becomes a shippable thing. Dependency resolution, build lifecycles, and why a versioned artifact &mdash; not a folder of files &mdash; is what you deploy. We build the same application twice, on two toolchains.</p>
+        <div class="tags"><span class="tag">Maven</span><span class="tag">Gradle</span><span class="tag">npm</span><span class="tag">semantic versioning</span></div>
+        <div class="ship"><b>You finish with</b>A reproducible build producing a versioned artifact from your repo.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">04</span></div>
+      <div class="stage-body">
+        <h3>Code Quality with SonarQube</h3>
+        <p>Standing up SonarQube, reading what it tells you, and separating real findings from noise. Quality gates, coverage, code smells and vulnerabilities &mdash; configured so a failing gate stops a bad build instead of being ignored.</p>
+        <div class="tags"><span class="tag">SonarQube</span><span class="tag">quality gates</span><span class="tag">coverage</span><span class="tag">static analysis</span></div>
+        <div class="ship"><b>You finish with</b>Your own SonarQube instance scanning your project against a gate you defined.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">05</span></div>
+      <div class="stage-body">
+        <h3>Docker &amp; Containers</h3>
+        <p>Images, layers, registries, and the difference between a container and a virtual machine. Writing a Dockerfile that is not 1.2&nbsp;GB, wiring multiple services with Compose, and handling data, networking and secrets.</p>
+        <div class="tags"><span class="tag">Dockerfile</span><span class="tag">multi-stage builds</span><span class="tag">Compose</span><span class="tag">registries</span><span class="tag">volumes</span></div>
+        <div class="ship"><b>You finish with</b>Your application containerized and published to a registry, running locally with its database.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">06</span></div>
+      <div class="stage-body">
+        <h3>Orchestration with Amazon ECS</h3>
+        <p>What an orchestrator does that <code>docker run</code> cannot. ECR, task definitions and revisions, the two IAM roles everyone confuses, Fargate versus EC2, load balancing, health checks, rolling deployments and autoscaling.</p>
+        <div class="tags"><span class="tag">ECS</span><span class="tag">Fargate</span><span class="tag">ECR</span><span class="tag">task definitions</span><span class="tag">ALB</span><span class="tag">autoscaling</span></div>
+        <div class="ship"><b>You finish with</b>Your image running as a scaled service behind a load balancer, on a URL you can share.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">07</span></div>
+      <div class="stage-body">
+        <h3>CI/CD with GitHub Actions</h3>
+        <p>Turning modules 2 through 6 into one automated pipeline. Workflow syntax, triggers, jobs and matrices, caching, secrets management, environments and approvals &mdash; build, scan, containerize, push, deploy, on every commit.</p>
+        <div class="tags"><span class="tag">GitHub Actions</span><span class="tag">workflows</span><span class="tag">secrets</span><span class="tag">environments</span><span class="tag">artifacts</span></div>
+        <div class="ship"><b>You finish with</b>A green pipeline that takes a merged pull request all the way to a published image, unattended.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">08</span></div>
+      <div class="stage-body">
+        <h3>Infrastructure as Code with Terraform</h3>
+        <p>Describing infrastructure instead of clicking it. HCL, providers, state and why it matters, variables and outputs, modules, and a safe change workflow &mdash; plan, review, apply, destroy &mdash; against a real cloud account.</p>
+        <div class="tags"><span class="tag">Terraform</span><span class="tag">HCL</span><span class="tag">state</span><span class="tag">modules</span><span class="tag">remote backends</span></div>
+        <div class="ship"><b>You finish with</b>Your entire environment &mdash; network, compute, cluster &mdash; defined in code and rebuildable from scratch.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">09</span></div>
+      <div class="stage-body">
+        <h3>Kubernetes</h3>
+        <p>Why orchestration exists and what it costs you. Pods, deployments, services and ingress; config maps and secrets; scaling, rolling updates and rollbacks; and reading logs and events when a pod will not start.</p>
+        <div class="tags"><span class="tag">kubectl</span><span class="tag">deployments</span><span class="tag">services</span><span class="tag">ingress</span><span class="tag">scaling</span><span class="tag">troubleshooting</span></div>
+        <div class="ship"><b>You finish with</b>Your container running on a managed cluster, updated by your pipeline, reachable at a real URL.</div>
+      </div></article>
+  </div>
+
+</div></section>
+
+<section id="format"><div class="wrap">
+  <div class="sec-head">
+    <span class="mono">03 &mdash; How it runs</span>
+    <h2>Live, small, and hands-on-keyboard.</h2>
+    <p>Six hours of live instruction every weekend for three months, taught over video rather than pre-recorded. You will be building alongside &mdash; expect to share your screen and get unstuck in the room.</p>
+  </div>
+  <div class="facts">
+    <div class="fact"><div class="k">Schedule</div><div class="v">Fri, Sat &amp; Sun <span class="ph">[7&ndash;9pm WAT]</span></div><div class="n">Three sessions weekly, two hours each &mdash; 6 hours of class, no weekday conflicts.</div></div>
+    <div class="fact"><div class="k">Platform</div><div class="v"><span class="ph">[Zoom / Google Meet]</span></div><div class="n">Link sent before each session.</div></div>
+    <div class="fact"><div class="k">Recordings</div><div class="v">Every session</div><div class="n">Posted within 24 hours, yours for 12 months.</div></div>
+    <div class="fact"><div class="k">Between classes</div><div class="v">Private community</div><div class="n"><span class="ph">[Slack / Discord]</span> channel for questions and code review.</div></div>
+    <div class="fact"><div class="k">Assessment</div><div class="v">Weekly labs</div><div class="n">Submitted as pull requests and reviewed individually.</div></div>
+  </div>
+</div></section>
+
+<section id="requirements"><div class="wrap">
+  <div class="sec-head">
+    <span class="mono">04 &mdash; What you need</span>
+    <h2>Come with these ready on day one.</h2>
+  </div>
+  <div class="req">
+    <div>
+      <h3 class="subhead">Before day one</h3>
+      <ul class="list">
+        <li>Working knowledge of the Linux command line and an active AWS account.</li>
+        <li>A laptop with 8&nbsp;GB RAM minimum, 16&nbsp;GB strongly preferred, and 40&nbsp;GB free disk.</li>
+        <li>Stable internet &mdash; you will be on video and pushing images.</li>
+        <li>A GitHub account.</li>
+        <li>Your Friday evenings and weekends free for three months, plus 4&ndash;6 hours a week for labs.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="subhead">We install these together in module 1</h3>
+      <div class="term">
+<span class="c">$</span> git --version<br>
+<span class="c">$</span> docker --version<br>
+<span class="c">$</span> terraform --version<br>
+<span class="c">$</span> kubectl version --client<br>
+<span class="c">$</span> aws --version<br>
+<span class="c">$</span> code --version<br>
+<span class="c">#</span> installed together in session 1
+      </div>
+      <p class="aside">Everything in this course runs on free tiers. Where a lab would incur cost, we tear the infrastructure down at the end of the session &mdash; and you will learn to check that it is actually gone.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="enroll"><div class="wrap">
+  <div class="sec-head">
+    <span class="mono">05 &mdash; Enrolment</span>
+    <h2>Cohort 01 is open.</h2>
+  </div>
+  <div class="price-card">
+    <div>
+      <div class="amount"><span class="ph">[&#8358;XXX,XXX]</span></div>
+      <p class="note">Full three months &middot; all 9 modules &middot; recordings &middot; community access &middot; reviewed labs. Instalment plan available: <span class="ph">[two payments]</span>.</p>
+    </div>
+    <div class="buys">
+      <a class="btn" href="mailto:[your@email.com]?subject=DevOps%20cohort%2001%20seat%20request">Email to reserve</a>
+      <a class="btn ghost" href="https://wa.me/[yournumber]">Message on WhatsApp</a>
+    </div>
+  </div>
+  <p class="aside">Not sure it is the right level? Send a note describing where you are now and I will tell you honestly whether this cohort fits.</p>
+</div></section>
+
+<footer><div class="wrap foot">
+  <div class="brand">the deployment <span>path</span></div>
+  <div class="mono"><span class="ph">[your@email.com]</span> &middot; <span class="ph">[+234 ...]</span></div>
+</div></footer>

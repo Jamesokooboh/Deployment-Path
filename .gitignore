@@ -1,0 +1,16 @@
+# Course notes — never published
+*.md
+*.docx
+md2docx.js
+
+# Node (only used locally to build the .docx files)
+node_modules/
+package.json
+package-lock.json
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
