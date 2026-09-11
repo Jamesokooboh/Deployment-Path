@@ -143,7 +143,7 @@ footer .mono{color:var(--ink-2)}
   <div>
     <div class="mono eyebrow">Weekends &middot; Live remote cohort &middot; Cohort 01</div>
     <h1>Learn to ship software the way teams actually ship it.</h1>
-    <p class="lede">Three months of Friday-to-Sunday evenings &mdash; nine modules, 72 hours of live instruction, and one running system you build yourself, from a bare Git repo to a containerized app deployed on Kubernetes by a pipeline you wrote. For engineers who already know the cloud and want to automate everything that touches it.</p>
+    <p class="lede">Three months of Friday-to-Sunday evenings &mdash; ten modules, 72 hours of live instruction, and one running system you build yourself, from a bare Git repo to a containerized app deployed on Kubernetes by a pipeline you wrote. For engineers who already know the cloud and want to automate everything that touches it.</p>
     <div class="cta-row">
       <a href="#enroll" class="btn">Reserve a seat</a>
       <a href="#curriculum" class="btn ghost">See the curriculum</a>
@@ -152,7 +152,7 @@ footer .mono{color:var(--ink-2)}
   <div class="jobcard">
     <div class="head"><span class="dot"></span> cohort-01 &middot; status: enrolling</div>
     <dl>
-      <dt>modules</dt><dd>9</dd>
+      <dt>modules</dt><dd>10</dd>
       <dt>duration</dt><dd>3 months</dd>
       <dt>live sessions</dt><dd>3 &times; weekly</dd>
       <dt>session length</dt><dd>2 hours</dd>
@@ -181,9 +181,9 @@ footer .mono{color:var(--ink-2)}
 <section id="curriculum"><div class="wrap">
   <div class="sec-head">
     <span class="mono">02 &mdash; Curriculum</span>
-    <h2>Eight stages. Each one adds to the same system.</h2>
-    <p>The order is deliberate: every module consumes what the last one produced. By module 9 you are deploying an artifact that was built, scanned, containerized and provisioned by work you did in modules 3 through 8.</p>
-    <p>Across the three months, modules 1 to 4 run about a week each and modules 5 to 9 rather longer &mdash; Docker, ECS, CI/CD, Terraform and Kubernetes get the bulk of the 72 hours. Pace shifts with the room; nobody is left behind to keep a schedule.</p>
+    <h2>Ten stages. Each one adds to the same system.</h2>
+    <p>The order is deliberate: every module consumes what the last one produced. By module 10 you are deploying an artifact that was built, scanned, containerized and provisioned by work you did in modules 4 through 9.</p>
+    <p>Across the three months, modules 1 to 5 run about a week each and modules 6 to 10 rather longer &mdash; Docker, ECS, CI/CD, Terraform and Kubernetes get the bulk of the 72 hours. Pace shifts with the room; nobody is left behind to keep a schedule.</p>
   </div>
 
   <div class="pipeline">
@@ -192,10 +192,18 @@ footer .mono{color:var(--ink-2)}
         <h3>DevOps Foundations</h3>
         <p>What DevOps actually is once you strip the marketing off it: the delivery lifecycle, why handoffs break, and where every tool in this course sits relative to the others. Then we build the shared environment every later module runs on.</p>
         <div class="tags"><span class="tag">SDLC</span><span class="tag">delivery pipeline anatomy</span><span class="tag">environments</span><span class="tag">toolchain setup</span></div>
-        <div class="ship"><b>You finish with</b>A configured workstation, a provisioned Linux host, and a mental map of how the nine modules connect.</div>
+        <div class="ship"><b>You finish with</b>A configured workstation, a provisioned Linux host, and a mental map of how the ten modules connect.</div>
       </div></article>
 
     <article class="stage"><div class="stage-rail"><span class="num">02</span></div>
+      <div class="stage-body">
+        <h3>Linux for DevOps</h3>
+        <p>The subset of Linux you will type every week: permissions and ownership, packages, processes and systemd services, logs, networking, disks, pipes and text processing, and enough shell scripting to automate a task and read someone else&rsquo;s script.</p>
+        <div class="tags"><span class="tag">permissions</span><span class="tag">systemd</span><span class="tag">journalctl</span><span class="tag">networking</span><span class="tag">shell scripting</span><span class="tag">cron</span></div>
+        <div class="ship"><b>You finish with</b>A server you can operate, a service of your own running under systemd, and a health-check script on a schedule.</div>
+      </div></article>
+
+    <article class="stage"><div class="stage-rail"><span class="num">03</span></div>
       <div class="stage-body">
         <h3>Git &amp; GitHub</h3>
         <p>Version control as a team practice, not a set of memorized commands. Branching models, pull requests, code review, resolving merge conflicts without panic, and the repository conventions every later module depends on.</p>
@@ -203,7 +211,7 @@ footer .mono{color:var(--ink-2)}
         <div class="ship"><b>You finish with</b>The course repository, forked and structured, with your first reviewed pull request merged.</div>
       </div></article>
 
-    <article class="stage"><div class="stage-rail"><span class="num">03</span></div>
+    <article class="stage"><div class="stage-rail"><span class="num">04</span></div>
       <div class="stage-body">
         <h3>Build Tools &amp; Artifacts</h3>
         <p>How source becomes a shippable thing. Dependency resolution, build lifecycles, and why a versioned artifact &mdash; not a folder of files &mdash; is what you deploy. We build the same application twice, on two toolchains.</p>
@@ -211,7 +219,7 @@ footer .mono{color:var(--ink-2)}
         <div class="ship"><b>You finish with</b>A reproducible build producing a versioned artifact from your repo.</div>
       </div></article>
 
-    <article class="stage"><div class="stage-rail"><span class="num">04</span></div>
+    <article class="stage"><div class="stage-rail"><span class="num">05</span></div>
       <div class="stage-body">
         <h3>Code Quality with SonarQube</h3>
         <p>Standing up SonarQube, reading what it tells you, and separating real findings from noise. Quality gates, coverage, code smells and vulnerabilities &mdash; configured so a failing gate stops a bad build instead of being ignored.</p>
@@ -219,7 +227,7 @@ footer .mono{color:var(--ink-2)}
         <div class="ship"><b>You finish with</b>Your own SonarQube instance scanning your project against a gate you defined.</div>
       </div></article>
 
-    <article class="stage"><div class="stage-rail"><span class="num">05</span></div>
+    <article class="stage"><div class="stage-rail"><span class="num">06</span></div>
       <div class="stage-body">
         <h3>Docker &amp; Containers</h3>
         <p>Images, layers, registries, and the difference between a container and a virtual machine. Writing a Dockerfile that is not 1.2&nbsp;GB, wiring multiple services with Compose, and handling data, networking and secrets.</p>
@@ -227,7 +235,7 @@ footer .mono{color:var(--ink-2)}
         <div class="ship"><b>You finish with</b>Your application containerized and published to a registry, running locally with its database.</div>
       </div></article>
 
-    <article class="stage"><div class="stage-rail"><span class="num">06</span></div>
+    <article class="stage"><div class="stage-rail"><span class="num">07</span></div>
       <div class="stage-body">
         <h3>Orchestration with Amazon ECS</h3>
         <p>What an orchestrator does that <code>docker run</code> cannot. ECR, task definitions and revisions, the two IAM roles everyone confuses, Fargate versus EC2, load balancing, health checks, rolling deployments and autoscaling.</p>
@@ -235,15 +243,15 @@ footer .mono{color:var(--ink-2)}
         <div class="ship"><b>You finish with</b>Your image running as a scaled service behind a load balancer, on a URL you can share.</div>
       </div></article>
 
-    <article class="stage"><div class="stage-rail"><span class="num">07</span></div>
+    <article class="stage"><div class="stage-rail"><span class="num">08</span></div>
       <div class="stage-body">
         <h3>CI/CD with GitHub Actions</h3>
-        <p>Turning modules 2 through 6 into one automated pipeline. Workflow syntax, triggers, jobs and matrices, caching, secrets management, environments and approvals &mdash; build, scan, containerize, push, deploy, on every commit.</p>
+        <p>Turning modules 3 through 7 into one automated pipeline. Workflow syntax, triggers, jobs and matrices, caching, secrets management, environments and approvals &mdash; build, scan, containerize, push, deploy, on every commit.</p>
         <div class="tags"><span class="tag">GitHub Actions</span><span class="tag">workflows</span><span class="tag">secrets</span><span class="tag">environments</span><span class="tag">artifacts</span></div>
         <div class="ship"><b>You finish with</b>A green pipeline that takes a merged pull request all the way to a published image, unattended.</div>
       </div></article>
 
-    <article class="stage"><div class="stage-rail"><span class="num">08</span></div>
+    <article class="stage"><div class="stage-rail"><span class="num">09</span></div>
       <div class="stage-body">
         <h3>Infrastructure as Code with Terraform</h3>
         <p>Describing infrastructure instead of clicking it. HCL, providers, state and why it matters, variables and outputs, modules, and a safe change workflow &mdash; plan, review, apply, destroy &mdash; against a real cloud account.</p>
@@ -251,7 +259,7 @@ footer .mono{color:var(--ink-2)}
         <div class="ship"><b>You finish with</b>Your entire environment &mdash; network, compute, cluster &mdash; defined in code and rebuildable from scratch.</div>
       </div></article>
 
-    <article class="stage"><div class="stage-rail"><span class="num">09</span></div>
+    <article class="stage"><div class="stage-rail"><span class="num">10</span></div>
       <div class="stage-body">
         <h3>Kubernetes</h3>
         <p>Why orchestration exists and what it costs you. Pods, deployments, services and ingress; config maps and secrets; scaling, rolling updates and rollbacks; and reading logs and events when a pod will not start.</p>
@@ -286,7 +294,7 @@ footer .mono{color:var(--ink-2)}
     <div>
       <h3 class="subhead">Before day one</h3>
       <ul class="list">
-        <li>Working knowledge of the Linux command line and an active AWS account.</li>
+        <li>An active AWS account. Module 02 covers the Linux you need &mdash; but you should be comfortable in a terminal.</li>
         <li>A laptop with 8&nbsp;GB RAM minimum, 16&nbsp;GB strongly preferred, and 40&nbsp;GB free disk.</li>
         <li>Stable internet &mdash; you will be on video and pushing images.</li>
         <li>A GitHub account.</li>
@@ -294,7 +302,7 @@ footer .mono{color:var(--ink-2)}
       </ul>
     </div>
     <div>
-      <h3 class="subhead">We install these together in module 1</h3>
+      <h3 class="subhead">We install these together in modules 1 and 2</h3>
       <div class="term">
 <span class="c">$</span> git --version<br>
 <span class="c">$</span> docker --version<br>
@@ -317,7 +325,7 @@ footer .mono{color:var(--ink-2)}
   <div class="price-card">
     <div>
       <h3 class="subhead">What a seat includes</h3>
-      <p class="note">Full three months &middot; all 9 modules &middot; 72 hours of live instruction &middot; recordings for 12 months &middot; community access &middot; individually reviewed labs.</p>
+      <p class="note">Full three months &middot; all 10 modules &middot; 72 hours of live instruction &middot; recordings for 12 months &middot; community access &middot; individually reviewed labs.</p>
     </div>
     <div class="buys">
       <a class="btn" href="mailto:[your@email.com]?subject=DevOps%20cohort%2001%20seat%20request">Email to reserve</a>
