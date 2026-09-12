@@ -104,6 +104,12 @@ section{padding:64px 0;border-bottom:1px solid var(--rule)}
 .fact .v{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-top:7px;letter-spacing:-.01em}
 .fact .n{color:var(--ink-2);font-size:.92rem;margin-top:5px}
 
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden;margin-top:36px}
+@media(max-width:760px){.extras{grid-template-columns:1fr}}
+.extra{background:var(--surface);padding:26px 28px}
+.extra h3{font-size:1.12rem;letter-spacing:-.01em}
+.extra p{color:var(--ink-2);margin:10px 0 0;font-size:.97rem}
+.extra .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--signal);display:block;margin-bottom:9px}
 .req{display:grid;grid-template-columns:1fr 1fr;gap:36px}
 @media(max-width:760px){.req{grid-template-columns:1fr;gap:26px}}
 .subhead{font-size:1.05rem;margin-bottom:16px}
@@ -268,6 +274,19 @@ footer .mono{color:var(--ink-2)}
       </div></article>
   </div>
 
+  <div class="extras">
+    <div class="extra">
+      <span class="k">Beyond the modules</span>
+      <h3>Capstone project</h3>
+      <p>There is no separate final project &mdash; the system you build across the twelve weekends is the capstone. One repository whose pipeline builds it, scans it, containerizes it, provisions its infrastructure and deploys it, which you can demo and defend line by line.</p>
+    </div>
+    <div class="extra">
+      <span class="k">Beyond the modules</span>
+      <h3>CV &amp; interview preparation</h3>
+      <p>A dedicated session on rewriting your CV around what you actually built, and rehearsing the questions it invites &mdash; the ones DevOps interviews really ask. Not a placement programme; preparation for the interviews you get.</p>
+    </div>
+  </div>
+
 </div></section>
 
 <section id="format"><div class="wrap">
@@ -326,7 +345,7 @@ footer .mono{color:var(--ink-2)}
   <div class="price-card">
     <div>
       <h3 class="subhead">What a seat includes</h3>
-      <p class="note">All 12 weekends &middot; all 10 modules &middot; 90 hours of live instruction &middot; recordings for 12 months &middot; community access &middot; individually reviewed labs.</p>
+      <p class="note">All 12 weekends &middot; all 10 modules &middot; 90 hours of live instruction &middot; capstone project &middot; CV &amp; interview preparation &middot; recordings for 12 months &middot; community access &middot; individually reviewed labs.</p>
     </div>
     <div class="buys">
       <a class="btn" href="mailto:[your@email.com]?subject=DevOps%20cohort%2001%20seat%20request">Email to reserve</a>
