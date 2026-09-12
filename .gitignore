@@ -19,3 +19,6 @@ desktop.ini
 *.dc.html
 canvas.json
 deployment-path-flyer.html
+
+# Rendered flyer exports
+*.png
